@@ -1,0 +1,16 @@
+[
+    {
+        "name":"Kitchen Utensil",
+        "description":"checklist for utensil cleaning",
+        "createdBy":"Robin",
+        "createdOn":"21-May-2019 09:43:33 IST",
+        "updatedOn":"25-May-2019 17:09:03 IST"
+    },
+    {
+        "name":"Kitchen",
+        "description":"checklist for appliance handling",
+        "createdBy":"Robin",
+        "createdOn":"21-May-2019 09:43:33 IST",
+        "updatedOn":"25-May-2019 17:09:03 IST"
+    }
+]

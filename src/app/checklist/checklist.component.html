@@ -1,0 +1,54 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<h2>Check Lists</h2>
+<div style="text-align: right;padding:0 1rem 1rem 0">
+  <button class="btn btn-primary" (click)="showDialog = true;">Create </button></div>
+<p-table #dt [columns]="cols" [value]="checklists" [paginator]="true" [rows]="10">
+  <ng-template pTemplate="caption">
+    <div style="text-align: right">
+      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <input type="text" pInputText size="50" placeholder="Global Filter"
+        (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field" *ngIf="col.header === 'Name' || col.header === 'Description'"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<p-dialog header="Add a new check list" [(visible)]="showDialog" [responsive]="true" showEffect="fade" [modal]="true"
+  [style]="{width: '500px'}">
+
+  <div> 
+  <label>Name:</label>
+
+  <input type=text [(ngModel)]="newRow.name">
+  </div> 
+  <div>
+    <label>Description:</label>
+
+    <input type=text [(ngModel)]="newRow.description">
+  </div>
+  <div>
+    <label>Created By:</label>
+
+    <input type=text [(ngModel)]="newRow.createdBy">
+  </div>
+  <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+          <button class = "btn btn-success" style="font-size: small" (click)="save()"> Save </button>
+          <button class = "btn btn-danger" style ="font-size: small" (click)="cancel()"> Cancel</button>
+      </div>
+  </p-footer>
+
+</p-dialog>
