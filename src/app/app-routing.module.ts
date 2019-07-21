@@ -5,9 +5,10 @@ import { ReportsComponent } from './reports/reports.component';
 import { VendorComponent } from './vendor/vendor.component';
 
 const routes: Routes = [
-  {path: 'checklist', component: ChecklistComponent},
-  {path: 'reports', component: ReportsComponent},
-  {path: 'vendor', component: VendorComponent},
+  { path: '', redirectTo: 'checklist', pathMatch: 'full' },
+  { path: 'checklist', component: ChecklistComponent },
+  { path: 'reports', component: ReportsComponent },
+  { path: 'vendor', component: VendorComponent },
 ];
 
 @NgModule({
